@@ -1,5 +1,5 @@
 Definitions.
-NAME       = [a-zA-Z-]+
+NAME       = [a-zA-Z-.]+
 WHITESPACE = [\s\t\n\r]
 
 Rules.

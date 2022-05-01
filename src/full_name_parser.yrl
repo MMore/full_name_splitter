@@ -1,11 +1,17 @@
-Nonterminals result word.
+Nonterminals full_name first_name middle_names middle_name last_name.
 Terminals string.
-Rootsymbol result.
+Rootsymbol full_name.
 
-result -> word : {'$1', nil}.
-result -> word word : {'$1', '$2'}.
+full_name -> first_name : {'$1', nil}.
+full_name -> first_name last_name : {'$1', '$2'}.
+full_name -> first_name middle_names last_name : {binary:list_to_bin(lists:join(" ", ['$1'] ++ '$2')), '$3'}.
 
-word -> string : extract_token('$1').
+middle_names -> middle_name : ['$1'].
+middle_names -> middle_names middle_name : lists:reverse(['$2'|'$1']).
+
+first_name -> string : extract_token('$1').
+middle_name -> string : extract_token('$1').
+last_name -> string : extract_token('$1').
 
 Erlang code.
 
