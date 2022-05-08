@@ -1,13 +1,27 @@
 defmodule FullNameSplitter.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/MMore/full_name_splitter"
+  @version "1.0.0"
+
   def project do
     [
       app: :full_name_splitter,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      source_url: @source_url,
+      homepage_url: @source_url,
+      name: "Full Name Splitter",
+      description:
+        "Full Name Splitter is a library to split a full name simply into first and last name.",
+      package: [
+        licenses: ["MIT"],
+        links: %{
+          "GitHub" => @source_url
+        }
+      ]
     ]
   end
 
