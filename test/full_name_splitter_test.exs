@@ -8,6 +8,8 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("John") == {"John", nil}
     assert FullNameSplitter.split("George W Bush") == {"George W", "Bush"}
     assert FullNameSplitter.split("George H. W. Bush") == {"George H. W.", "Bush"}
+    assert FullNameSplitter.split("George H. W. A. Bush") == {"George H. W. A.", "Bush"}
+    assert FullNameSplitter.split("George H. W. A. B. Bush") == {"George H. W. A. B.", "Bush"}
     assert FullNameSplitter.split("James K. Polk") == {"James K.", "Polk"}
     assert FullNameSplitter.split("William Henry Harrison") == {"William Henry", "Harrison"}
     assert FullNameSplitter.split("John Quincy Adams") == {"John Quincy", "Adams"}
@@ -34,6 +36,7 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("Juan Gaz de la Cruz") == {"Juan Gaz", "de la Cruz"}
 
     assert FullNameSplitter.split("Han Vande Casteele") == {"Han", "Vande Casteele"}
+    assert FullNameSplitter.split("Johan de heer Van Kampen") == {"Johan", "de heer Van Kampen"}
     assert FullNameSplitter.split("Han Van De Casteele") == {"Han", "Van De Casteele"}
     assert FullNameSplitter.split("Han S. Van De Casteele") == {"Han S.", "Van De Casteele"}
     assert FullNameSplitter.split("Albert Van Der Haart") == {"Albert", "Van Der Haart"}
