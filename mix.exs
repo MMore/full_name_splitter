@@ -13,7 +13,6 @@ defmodule FullNameSplitter.MixProject do
       deps: deps(),
       source_url: @source_url,
       homepage_url: @source_url,
-      name: "Full Name Splitter",
       description:
         "Full Name Splitter is a library to split a full name simply into first and last name.",
       package: [
