@@ -1,6 +1,6 @@
 Definitions.
 NAME = [a-zA-Z-.']+
-LAST_NAME_PREFIX = Vande|Van|De|de|del|Del|Della|Delle|Dello|Der|da|du|von|la|heer
+LAST_NAME_PREFIX = Vande|Van|van|De|de|del|Del|der|Della|Delle|Dello|Der|Da|da|Du|du|Von|von|La|la|heer
 WHITESPACE = [\s\t\n\r]
 
 Rules.

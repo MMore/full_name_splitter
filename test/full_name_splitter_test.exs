@@ -16,6 +16,10 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("Kevin J. O'Connor") == {"Kevin J.", "O'Connor"}
     assert FullNameSplitter.split("Ben Butler-Sandwich") == {"Ben", "Butler-Sandwich"}
     assert FullNameSplitter.split("Noda' bi-Yehudah") == {"Noda'", "bi-Yehudah"}
+    assert FullNameSplitter.split("Ken E. Mark Slater") == {"Ken E. Mark", "Slater"}
+
+    assert FullNameSplitter.split("Marie-Anne Richmond-Smithe") ==
+             {"Marie-Anne", "Richmond-Smithe"}
   end
 
   test "splits names with prefix in last_name" do
@@ -24,21 +28,34 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("Charles d'Artagnan") == {"Charles", "d'Artagnan"}
     assert FullNameSplitter.split("Alessandro Del Piero") == {"Alessandro", "Del Piero"}
     assert FullNameSplitter.split("Anne du Bourg") == {"Anne", "du Bourg"}
+    assert FullNameSplitter.split("Juan Du Satre") == {"Juan", "Du Satre"}
 
     assert FullNameSplitter.split("Johann Wolfgang von Goethe") ==
              {"Johann Wolfgang", "von Goethe"}
 
+    assert FullNameSplitter.split("Anthony R Von Fange") == {"Anthony R", "Von Fange"}
+
     assert FullNameSplitter.split("Leonardo da Vinci") == {"Leonardo", "da Vinci"}
+    assert FullNameSplitter.split("Luca Da Gama") == {"Luca", "Da Gama"}
     assert FullNameSplitter.split("Adriano Dello Spavento") == {"Adriano", "Dello Spavento"}
     assert FullNameSplitter.split("Luca Delle Fave") == {"Luca", "Delle Fave"}
     assert FullNameSplitter.split("Francesca Della Valle") == {"Francesca", "Della Valle"}
     assert FullNameSplitter.split("Tomasso D'Arco") == {"Tomasso", "D'Arco"}
     assert FullNameSplitter.split("Juan Gaz de la Cruz") == {"Juan Gaz", "de la Cruz"}
+    assert FullNameSplitter.split("Juan Gaz De La Cruz") == {"Juan Gaz", "De La Cruz"}
 
     assert FullNameSplitter.split("Han Vande Casteele") == {"Han", "Vande Casteele"}
     assert FullNameSplitter.split("Johan de heer Van Kampen") == {"Johan", "de heer Van Kampen"}
     assert FullNameSplitter.split("Han Van De Casteele") == {"Han", "Van De Casteele"}
     assert FullNameSplitter.split("Han S. Van De Casteele") == {"Han S.", "Van De Casteele"}
     assert FullNameSplitter.split("Albert Van Der Haart") == {"Albert", "Van Der Haart"}
+    assert FullNameSplitter.split("Hans van der Hort") == {"Hans", "van der Hort"}
+  end
+
+  test "ignores whitespaces while splitting" do
+    assert FullNameSplitter.split("\t George \t  H.  \tW. \t Bush \t") == {"George H. W.", "Bush"}
+
+    assert FullNameSplitter.split("  Marie-Anne   Richmond-Smithe") ==
+             {"Marie-Anne", "Richmond-Smithe"}
   end
 end
