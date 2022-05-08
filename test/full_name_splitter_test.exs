@@ -73,6 +73,14 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("John Doe VI") == {"John", "Doe VI"}
   end
 
+  test "splits umlauts" do
+    assert FullNameSplitter.split("Jàáâã Martíñ Müller") == {"Jàáâã Martíñ", "Müller"}
+  end
+
+  test "splits unrecognized names in a simply way as fallback" do
+    assert FullNameSplitter.split("Maria del Carmen Menendez") == {"Maria del Carmen", "Menendez"}
+  end
+
   test "ignores whitespaces while splitting" do
     assert FullNameSplitter.split("\t George \t  H.  \tW. \t Bush \t") == {"George H. W.", "Bush"}
 
