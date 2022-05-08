@@ -52,6 +52,27 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("Hans van der Hort") == {"Hans", "van der Hort"}
   end
 
+  test "splits names with suffix in last_name" do
+    assert FullNameSplitter.split("John Doe Jr.") == {"John", "Doe Jr."}
+    assert FullNameSplitter.split("John Doe Junior") == {"John", "Doe Junior"}
+
+    assert FullNameSplitter.split("William Randolph Hearst Jr") ==
+             {"William Randolph", "Hearst Jr"}
+
+    assert FullNameSplitter.split("William Hearst Sr") == {"William", "Hearst Sr"}
+    assert FullNameSplitter.split("William Hearst Sr.") == {"William", "Hearst Sr."}
+    assert FullNameSplitter.split("William Hearst Senior") == {"William", "Hearst Senior"}
+
+    assert FullNameSplitter.split("Anthony R Von Fange III") == {"Anthony R", "Von Fange III"}
+
+    assert FullNameSplitter.split("John Doe I") == {"John", "Doe I"}
+    assert FullNameSplitter.split("John Doe II") == {"John", "Doe II"}
+    assert FullNameSplitter.split("John Doe III") == {"John", "Doe III"}
+    assert FullNameSplitter.split("John Doe IV") == {"John", "Doe IV"}
+    assert FullNameSplitter.split("John Doe V") == {"John", "Doe V"}
+    assert FullNameSplitter.split("John Doe VI") == {"John", "Doe VI"}
+  end
+
   test "ignores whitespaces while splitting" do
     assert FullNameSplitter.split("\t George \t  H.  \tW. \t Bush \t") == {"George H. W.", "Bush"}
 
