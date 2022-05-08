@@ -50,6 +50,7 @@ defmodule FullNameSplitterTest do
     assert FullNameSplitter.split("Han S. Van De Casteele") == {"Han S.", "Van De Casteele"}
     assert FullNameSplitter.split("Albert Van Der Haart") == {"Albert", "Van Der Haart"}
     assert FullNameSplitter.split("Hans van der Hort") == {"Hans", "van der Hort"}
+    assert FullNameSplitter.split("Hans van den Berg") == {"Hans", "van den Berg"}
   end
 
   test "splits names with suffix in last_name" do
