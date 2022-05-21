@@ -76,8 +76,9 @@ defmodule FullNameSplitterTest do
 
   test "splits umlauts" do
     assert FullNameSplitter.split("Jake Ciepły") == {"Jake", "Ciepły"}
-    assert FullNameSplitter.split("Jacob Müller") == {"Jacob", "Müller"}
-    assert FullNameSplitter.split("Cadro Ćwikliński") == {"Cadro", "Ćwikliński"}
+    assert FullNameSplitter.split("Jacob Müller") == {"Jacob", "Müller"}
+    assert FullNameSplitter.split("Cadro Ćwikliński") == {"Cadro", "Ćwikliński"}
+    assert FullNameSplitter.split("Micha Weiß") == {"Micha", "Weiß"}
   end
 
   test "splits unrecognized or invalid input in a simply way as fallback" do

@@ -13,7 +13,10 @@ defmodule FullNameSplitter do
     {first_name, last_name} =
       try do
         {:ok, tokens, _} =
-          full_name |> String.normalize(:nfd) |> to_charlist() |> :full_name_lexer.string()
+          full_name
+          |> String.normalize(:nfd)
+          |> :binary.bin_to_list()
+          |> :full_name_lexer.string()
 
         {:ok, result} = :full_name_parser.parse(tokens)
         result
