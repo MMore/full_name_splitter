@@ -17,6 +17,7 @@ defmodule FullNameSplitter.MixProject do
       description:
         "Full Name Splitter is a library to split a full name simply into first and last name.",
       package: [
+        exclude_patterns: [".erl"],
         licenses: ["MIT"],
         links: %{
           "GitHub" => @source_url
