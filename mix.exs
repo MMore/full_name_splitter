@@ -11,6 +11,7 @@ defmodule FullNameSplitter.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      compilers: [:leex, :yecc] ++ Mix.compilers(),
       source_url: @source_url,
       homepage_url: @source_url,
       description:
