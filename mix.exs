@@ -2,7 +2,7 @@ defmodule FullNameSplitter.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/MMore/full_name_splitter"
-  @version "1.0.2"
+  @version "1.0.3"
 
   def project do
     [
